@@ -13,3 +13,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Print a greeting
         run: echo "Hello from GitHub Actions, triggered on the ${{ github.ref_name }} branch"
+      - name: Use the demo API key
+        run: echo "The key starts with ${DEMO_API_KEY:0:4}..."
+        env:
+          DEMO_API_KEY: ${{ secrets.DEMO_API_KEY }}
